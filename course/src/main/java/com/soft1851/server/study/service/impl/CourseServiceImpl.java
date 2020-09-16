@@ -30,13 +30,16 @@ public class CourseServiceImpl implements CourseService {
     public List<CourseDto> findCourse() {
         List<Course> course = courseDao.getInfo();
         List<CourseDto> courseDtoList = new ArrayList<>();
-        CourseDto courseDto = new CourseDto();
+        CourseDto courseDto;
         for (Course c:course
              ) {
+            courseDto = new CourseDto();
             Course course1 = courseDao.findCourseById(c.getId());
             Integer userId = course1.getUserId();
             UserDto userDto = restTemplate.getForObject("http://47.115.60.46:8082/user/id?userId="+userId,UserDto.class,userId);
+            System.out.println(course1);
             courseDto.setCourse(course1);
+            System.out.println(courseDto.getCourse());
             courseDto.setUserName(userDto.getName());
             courseDto.setUserAvatar(userDto.getAvatar());
             courseDtoList.add(courseDto);

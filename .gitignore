@@ -27,5 +27,8 @@ hs_err_pid*
 
 *.idea
 */target
-*.inl
+course/target
+eureka-server/target
+user/target
+*.iml
 
