@@ -1,5 +1,6 @@
 package com.soft1851.server.study.handle;
 
+import com.soft1851.server.study.service.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +19,8 @@ import java.util.List;
 public class RestHandle {
     @Resource
     private RestTemplate restTemplate;
+    @Resource
+    private UserService userService;
 
 
 }

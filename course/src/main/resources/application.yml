@@ -20,6 +20,9 @@ spring:
 mybatis:
   type-aliases-package: com.soft1851.server.study.entity
 
+  configuration:
+    map-underscore-to-camel-case: true
+
 server:
   port: 8080
 
