@@ -35,7 +35,7 @@ public class CourseServiceImpl implements CourseService {
              ) {
             Course course1 = courseDao.findCourseById(c.getId());
             Integer userId = course1.getUserId();
-            UserDto userDto = restTemplate.getForObject("http://10.40.181.73:8082/user/id?userId="+userId,UserDto.class,userId);
+            UserDto userDto = restTemplate.getForObject("http://47.115.60.46:8082/user/id?userId="+userId,UserDto.class,userId);
             courseDto.setCourse(course1);
             courseDto.setUserName(userDto.getName());
             courseDto.setUserAvatar(userDto.getAvatar());
@@ -48,7 +48,7 @@ public class CourseServiceImpl implements CourseService {
     public CourseDto findCourseById(Integer id) {
         Course course = courseDao.findCourseById(id);
         Integer userId = course.getUserId();
-        UserDto userDto = restTemplate.getForObject("http://10.40.181.73:8082/user/id?userId="+userId,UserDto.class,userId);
+        UserDto userDto = restTemplate.getForObject("http://47.115.60.46:8082/user/id?userId="+userId,UserDto.class,userId);
         CourseDto courseDto = new CourseDto();
         courseDto.setCourse(course);
         courseDto.setUserName(userDto.getName());
