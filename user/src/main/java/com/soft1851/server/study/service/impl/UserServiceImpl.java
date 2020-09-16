@@ -1,5 +1,6 @@
 package com.soft1851.server.study.service.impl;
 
+import com.soft1851.server.study.dto.UserDto;
 import com.soft1851.server.study.entity.User;
 import com.soft1851.server.study.mapper.UserMapper;
 import com.soft1851.server.study.service.UserService;
@@ -21,19 +22,27 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public List<UserVo> selectAll() {
+    public List<UserDto> selectAll() {
         List<User> userList = userMapper.selectAll();
-        List<UserVo> list = new ArrayList<>();
+        List<UserDto> list = new ArrayList<>();
         userList.forEach(user -> {
             UserVo result = UserVo.fromUser(user);
-            list.add(result);
+            UserDto userDto = new UserDto();
+            userDto.setAvatar(result.getAvatar());
+            userDto.setName(result.getNickname());
+            userDto.setId(result.getId());
+            list.add(userDto);
         });
         return list;
     }
 
     @Override
-    public UserVo selectByUserId(Integer userId) {
+    public UserDto selectByUserId(Integer userId) {
         User user = userMapper.selectByUserId(userId);
-        return UserVo.fromUser(user);
+        UserDto userDto = new UserDto();
+        userDto.setId(user.getId());
+        userDto.setName(user.getNickname());
+        userDto.setAvatar(user.getAvatar());
+        return userDto;
     }
 }
