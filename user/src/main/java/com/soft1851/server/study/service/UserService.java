@@ -1,5 +1,6 @@
 package com.soft1851.server.study.service;
 
+import com.soft1851.server.study.dto.UserDto;
 import com.soft1851.server.study.entity.User;
 import com.soft1851.server.study.vo.UserVo;
 
@@ -17,12 +18,12 @@ public interface UserService {
      *
      * @return
      */
-    List<UserVo> selectAll();
+    List<UserDto> selectAll();
 
     /**
      * 根据id查询
      *
      * @return
      */
-    UserVo selectByUserId(Integer userId);
+    UserDto selectByUserId(Integer userId);
 }

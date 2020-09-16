@@ -1,5 +1,6 @@
 package com.soft1851.server.study.controller;
 
+import com.soft1851.server.study.dto.UserDto;
 import com.soft1851.server.study.entity.User;
 import com.soft1851.server.study.service.UserService;
 import com.soft1851.server.study.vo.UserVo;
@@ -23,12 +24,12 @@ public class UserController {
     private UserService userService;
 
     @GetMapping(value = "/all")
-    public List<UserVo> getAll() {
+    public List<UserDto> getAll() {
         return userService.selectAll();
     }
 
     @GetMapping(value = "/id")
-    public UserVo getById(@RequestParam("userId") Integer userId) {
+    public UserDto getById(@RequestParam("userId") Integer userId) {
         return userService.selectByUserId(userId);
     }
 }
