@@ -27,7 +27,7 @@ server:
 #服务注册
 eureka:
   instance:
-    hostname: localhost
+    hostname: 47.115.60.46
     prefer-ip-address: true
 
   client:

@@ -5,7 +5,7 @@ spring:
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://47.115.60.46:3306/micro-service?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
+    url: jdbc:mysql://47.115.60.46:3306/micro-service1?useUnide=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
     username: root
     password: 123456
     hikari:
@@ -19,14 +19,15 @@ spring:
 #mp配置
 mybatis:
   type-aliases-package: com.soft1851.server.study.entity
-
+  configuration:
+    map-underscore-to-camel-case: true
 server:
   port: 8080
 
 #服务注册
 eureka:
   instance:
-    hostname: localhost
+    hostname: 47.115.60.46
     prefer-ip-address: true
 
   client:
@@ -39,7 +40,6 @@ info:
   app:
     name: course
     version: 1.0.0
-
 management:
   endpoints:
     web:
