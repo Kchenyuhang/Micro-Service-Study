@@ -17,6 +17,9 @@ import java.util.List;
 @Mapper
 @Component(value = "courseDao")
 public interface CourseDao {
-    @Select("SELECT id,name,cover,class_name from t_course")
-    List<Course> getInfo(@Param("userId") Integer userId);
+    @Select("SELECT id,name,cover,class_name,user_id,is_enabled from t_course")
+    List<Course> getInfo();
+
+    @Select("SELECT id,name,cover,class_name,user_id,is_enabled from t_course where id = #{id}")
+    Course findCourseById(Integer id);
 }
